@@ -25,83 +25,81 @@ header .theme {
     margin-top: 10px;
 }
 
-main {
-    padding: 20px;
-}
-
 .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
 }
 
 .product {
-    background: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 10px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    position: relative;
+    width: 200px;
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
-.product img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-.product:hover img {
+.product.selected {
+    border-color: #e8491d;
     transform: scale(1.05);
 }
 
-.product-info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.product img {
+    max-width: 100%;
+    height: auto;
 }
 
-.product h2 {
-    margin: 10px 0;
-    font-size: 1.5em;
-}
-
-.price {
-    margin: 10px 0;
-    font-size: 1.3em;
-    color: #e8491d;
-}
-
-button {
-    background: #e8491d;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background 0.3s ease;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #35424a;
-}
-
-.contactInfo {
-    margin-top: 10px;
+.product-info h2 {
     font-size: 1.2em;
+    margin: 10px 0;
 }
 
-.hidden {
+.product-info .price {
+    font-size: 1.1em;
+    color: #e8491d;
+    margin: 10px 0;
+}
+
+.contactButton {
+    background: #e8491d;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contactButton:hover {
+    background: #333;
+}
+
+.contactInfo.hidden {
     display: none;
+}
+
+.payment-buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+.payment-buttons button {
+    background: #e8491d;
+    color: #fff;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.payment-buttons button:hover {
+    background: #333;
 }
 
 footer {
@@ -109,22 +107,19 @@ footer {
     color: #ffffff;
     text-align: center;
     padding: 20px;
-    border-top: #e8491d 3px solid;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
 }
 
 footer p {
-    margin: 10px 0;
+    margin: 5px;
 }
 
 .whatsapp-link {
-    color: #25D366;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    transition: color 0.3s;
 }
 
 .whatsapp-link:hover {
-    text-decoration: underline;
+    color: #e8491d;
 }
