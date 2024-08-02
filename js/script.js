@@ -1,9 +1,37 @@
 document.querySelectorAll('.contactButton').forEach(button => {
     button.addEventListener('click', () => {
-        const contactInfo = button.nextElementSibling;
+        // Find the closest parent product element
+        const product = button.closest('.product');
+        // Find the contactInfo within this product
+        const contactInfo = product.querySelector('.contactInfo');
+        // Toggle the visibility of the contactInfo
         contactInfo.classList.toggle('hidden');
     });
 });
+
+const filterProducts = () => {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.product').forEach(product => {
+        const productName = product.querySelector('h2').textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            product.style.display = ''; // Show product
+        } else {
+            product.style.display = 'none'; // Hide product
+        }
+    });
+};
+
+let debounceTimer;
+const debounce = (func, delay) => {
+    return function(...args) {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(this, args), delay);
+    };
+};
+
+const debouncedFilterProducts = debounce(filterProducts, 300);
+
+document.getElementById('searchInput').addEventListener('input', debouncedFilterProducts);
 
 // Function to get selected product price in GHS
 const getSelectedProductPrice = () => {

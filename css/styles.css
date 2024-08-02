@@ -1,78 +1,195 @@
-/* Add this to your css/styles.css */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   
-  header {
+  header, footer {
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    background-color: #f8f8f8;
-    padding: 20px 0;
-    margin-bottom: 20px;
+    padding: 1em 0;
   }
   
   .theme {
-    font-size: 1.2em;
-    color: #333;
-  }
-  
-  .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .product {
-    flex: 1 1 calc(25% - 40px); /* Adjusts to 4 items per row on desktop */
-    box-sizing: border-box;
-    margin: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .product img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .product-info {
-    margin-top: 10px;
-  }
-  
-  .price {
-    color: #e91e63;
+    margin: 0;
+    color: #ff0000;
     font-weight: bold;
   }
   
-  button.contactButton {
-    background-color: #e91e63;
-    color: white;
+  /* Product Section */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .product img {
+    width: 100%;
+    height: 40%;
+  }
+  
+  .product-info {
+    padding: 1rem;
+  }
+  
+  .price {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  button {
+    padding: 0.5em 1em;
     border: none;
-    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .contactButton {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .paymentButton {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .contactButton:hover, .paymentButton:hover {
+    opacity: 0.8;
+  }
+  
+  /* Footer Styles */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    flex-wrap: wrap;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #25d366;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+  }
+  
+  footer a:hover {
+    background-color: #128c7e;
+  }
+
+  .payment-buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+.whatsapp-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.whatsapp-link:hover {
+    color: #e8491d;
+}
+
+.payment-buttons button {
+    background: #e8491d;
+    color: #fff;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.payment-buttons button:hover {
+    background: #333;
+}
+
+
+
+
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease;
+} */
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: #e8491d 3px solid;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header .theme {
+    font-size: 1.2em;
     margin-top: 10px;
-  }
-  
-  button.contactButton:hover {
-    background-color: #d81b60;
-  }
-  
-  .contactInfo {
+}
+
+
+.product.selected {
+    border-color: #e8491d;
+    transform: scale(1.05);
+}
+
+
+
+.contactInfo.hidden {
     display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .product {
-      flex: 1 1 calc(50% - 40px); /* Adjusts to 2 items per row on tablets */
+}
+
+.payment-buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+.payment-buttons button {
+    background: #e8491d;
+    color: #fff;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.payment-buttons button:hover {
+    background: #333;
+}
+
+@media (max-width: 600px) {
+    .contactInfo {
+        max-height: 140px; 
     }
-  }
-  
-  @media (max-width: 480px) {
-    .product {
-      flex: 1 1 calc(100% - 40px); /* Adjusts to 1 item per row on mobile */
-    }
-  }
-  
+}
